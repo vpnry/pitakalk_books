@@ -1,0 +1,160 @@
+@font-face {
+    font-family: 'UN-Abhaya';
+    src: local('###'), url('UN-Abhaya.ttf') format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'UN-Abhaya';
+    src: local('###'), url('UN-Abhaya-new-bold-6.ttf') format('truetype');
+    font-weight: bold;
+}
+@font-face { font-family: 'styled'; src: local('###'), url('UN-Alakamanda-4-95.ttf') format('truetype'); font-weight: normal; }
+@font-face { font-family: 'heading'; src: local('###'), url('UN-Malithi-4.ttf') format('truetype'); font-weight: normal; }
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url('MaterialIcons-Regular.woff2') format('woff2');
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    /*font-size: 24px;*/  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+    vertical-align: middle;
+}
+
+body {
+    font-family: 'UN-Abhaya';
+    font-size: 18px;
+    text-align: justify;
+}
+
+.title-bar { flex: 1 1; text-align: center; padding: 5pt; display: flex; align-items: center; background-color: lightsalmon; font-size: 1.5rem; }
+.title-bar-text { font-family: 'styled'; font-size: 1.8rem; flex: 1; margin: 0 0.3rem 0 0.3rem; }
+.notice { text-align: center; padding: 5pt; font-family: 'heading'; } /* click help notice */
+
+.heading-bar { display: flex; align-items: center; font-family: 'heading'; }
+.heading-bar .share-icon { margin-left: 1rem; }
+h1 { font-size: 1.6rem; font-weight: normal; }
+h2 { font-size: 1.4rem; font-weight: normal; }
+h3,h4 { font-size: 1.3rem; font-weight: normal; }
+
+.subheadings { border-top: 0.5px dashed lightsalmon; margin-bottom: 0.5rem; }
+
+.TOC-container { padding: 0.2rem 0 0.2rem 0; }
+.TOC-text { display: flex; align-items: center; text-align: left;}
+.TOC-text[level="1"] { font-size: 1.3rem; padding: 0.2rem 0 0.2rem 0; }
+.TOC-text[level="2"] { font-size: 1.2rem; padding-left: 1.5rem; }
+.TOC-text[level="3"] { font-size: 1.1rem; padding-left: 3rem; }
+.TOC-text[level="4"] { font-size: 1.1rem; padding-left: 4rem; }
+.TOC-text:hover { background-color: whitesmoke; }
+.TOC-text.closed { font-weight: bold; }
+.TOC-text a { text-decoration: none; }
+.TOC-text .material-icons { cursor: pointer; margin: 0 0.25rem 0 0.25rem; }
+.TOC-text:hover .material-icons.parent { color: red; }
+
+.hover-icon { visibility: hidden; }
+*:hover > .hover-icon { visibility: visible; }
+
+.share-icon:hover { visibility: visible; color: blue; cursor: pointer;}
+
+.gatha { margin: 0.1rem 0 0.1rem 2rem; }
+.gatha > p { padding: 0; margin: 0; }
+
+.subhead { color:brown; font-weight: bold; font-size: 1.2rem; } /* headings that are not in TOC */
+.subhead > p { padding: 0; margin: 0; }
+
+.largefont { font-size: larger; } /* used for largepali sections in vinaya karma book for now */
+
+.centered { text-align: center; }
+
+img { max-width: 100%; }
+
+table td { border: 1px solid black; padding: 10px 10px; text-align: left; }
+td > p { padding: 0; margin: 0; }
+
+ol.footnotes { border-top: 0.5px solid black; font-size: 0.9rem; column-width: 15rem; column-count: 2; padding-top: 3px; column-gap: 2rem;}
+ol.footnotes li p { margin: 4px 15px 4px 0px; }
+
+
+nav { text-align: center; display: flex; align-items: center; justify-content: center;  flex-wrap: wrap;}
+nav.top { font-size: 1.3rem; }
+nav > a.button { margin: 0.15rem 0.25rem 0.15rem 0.25rem; }
+
+a.button {
+    margin: 2pt 1pt 2pt 1pt;
+    text-align:center;
+    background-color: white;
+    padding: 6px 5px 6px 5px;
+    text-decoration: none;
+    line-height: 1;
+    border-radius: 4px;
+    border: 1px solid lightsalmon;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-items: center;
+}
+a.button:hover {
+    background-color: lightsalmon;
+}
+a.button:active, a.button.pressed {
+    background-color: gray;
+    box-shadow: none;
+}
+a.button .material-icons { color: black; padding: 0 0.3rem 0 0.3rem; }
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#toast {
+    display: none; /* Hidden by default. Visible on click */
+    background-color: black; /* Black background color */
+    color: white; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 5pt; /* Rounded borders */
+    padding: 5pt 10pt 5pt 10pt; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1000; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    transform: translateX(-50%);
+    bottom: 30pt; /* 30px from the bottom */
+}
+#content-about { font-size: 0.9rem; padding: 10px; text-align: center; background-color: beige; }
+
+/**In the app-index.html */
+.group { text-align: center;  margin: 0.5rem; padding: 0.1rem; border: 1px solid white; background-color: whitesmoke; border-radius: 5px;}
+.group:hover { border-color: salmon; }
+.group-name { font-family: 'styled'; font-size: 1.7rem; color: brown; padding: 0.5rem; background-color: antiquewhite; }
+.books-list .book { font-size: 1.4rem; padding: 0.5rem; display: flex; align-items: center;}
+.books-list .book:hover { background-color: white; }
+.books-list .book a { text-decoration: none; flex: 1;}
+
+
+/** styles used in the palibhashavatharana 1 book by ven ariyadassana **/
+table.max-width { max-width: 800px; border: 1px solid black }
+table.max-width tr { border: 1px solid black }
+table.max-width td { border: 1px solid black; padding: 2px;}
+table.max-width td.separator { background-color: lightgrey; width: 10px;}
+table.max-width thead { color: brown; background-color: yellow; text-align: center;}
